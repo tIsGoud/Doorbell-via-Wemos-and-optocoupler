@@ -1,0 +1,19 @@
+{
+  "name": "WeMos Doorbell",
+  "device_id": "doorbell",
+  "wifi": {
+    "ssid": "[your Wi-Fi SSID]",
+    "password": "[your Wi-Fi password]"
+  },
+  "mqtt": {
+    "host": "[your MQTT host IP-address]",
+    "port": 1883,
+    "base_topic": "wemos/",
+    "auth": true,
+    "username": "[your MQTT username]",
+    "password": "[your MQTT password]"
+  },
+  "ota": {
+    "enabled": true
+  }
+}
