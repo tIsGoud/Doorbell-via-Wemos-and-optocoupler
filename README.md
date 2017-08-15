@@ -1,6 +1,6 @@
 # Doorbell via Wemos and optocoupler
 
-This is the digital version or v2.0 of my [initial doorbell project](https://github.com/tIsGoud/Doorbell-via-Wemos/).
+This is the new version of my [initial doorbell project](https://github.com/tIsGoud/Doorbell-via-Wemos/).   
 The main goal is to determine if the doorbell was pressed and perform some actions based on it.
 
 I could have made a version 2.0 of the initial setup but that did not feel right. The hardware and the software are very different.
@@ -14,6 +14,7 @@ A nice galvanic separation between the two circuits, thereby protecting the Wemo
 As in the previous version the main requirements is that I do not want to mess with the existing doorbell installation or have a dependency on extra components.
 
 The standard Dutch doorbell installation:
+
 ![Dutch standard doorbell installation](img/standard_doorbell_installation.png)
 
 Once the doorbell-button is pressed, the "signal" is send to the Wemos. The Wemos is connected to MQTT via the local Wi-Fi.
@@ -24,20 +25,23 @@ For now I send a message to a Slack-bot to notify me.
 
 ## Hardware v2.0
 
-For the initial setup [Rudi](http://www.rudiniemeijer.nl) a colleague helped me out with the design and some components he had lying around:
+For the initial setup we need the following parts:
 - Resistor, 330Ω
 - Diode, 1N4148
 - Optocoupler, PC817
 
 The resistor lowers the voltage, the diode "flattens" the signal and the optocoupler sends the signal to the Wemos on port(D3/GPIO0).
+
 ![Hardware setup v2.0](img/hardware_setup_v2.0.png)
 
 The value read on port D3 is by default 1, pressing the doorbell drops the signal to 0. Not what I initially expected but this is how it works.
 
 Another learning point was how to connect the optocoupler. On the surface there is a "dot", this indicates port 1, the anode that connects to the doorbell. The emitter and collector are connected to the Wemos.
+
 ![Optocoupler](img/optocoupler.png)
 
 On the breadbord the setup is nice and simple.
+
 ![Breadbord 2.0](img/breadbord_v2.0.jpg)
 
 ## Software v2.0
